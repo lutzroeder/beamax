@@ -1,0 +1,348 @@
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+
+#include "Resource.h"
+#include "afxres.h"
+
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""Resource.h""\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+IDR_MAIN_FRAME          ICON                    "Application.ico"
+IDR_DOCUMENT            ICON                    "Document.ico"
+IDR_MAIN_FRAME          BITMAP                  "ToolBar.bmp"
+
+IDR_MAIN_FRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Page Set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Rescent File",                ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tCtrl+X",               ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About...",                   IDM_ABOUT
+    END
+END
+
+IDR_DOCUMENT MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Page Set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "Rescent File",                ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tCtrl+X",               ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Delete\tDel",                IDM_DELETE
+        MENUITEM "&Properties",                 IDM_PROPERTIES
+        POPUP "&Create"
+        BEGIN
+            MENUITEM "&Fixed Support\tAlt+X",       IDM_FIXED_SUPPORT
+            MENUITEM "&Hinged Support\tAlt+N",      IDM_HINGED_SUPPORT
+            MENUITEM "&Roller Support\tAlt+R",      IDM_ROLLER_SUPPORT
+            MENUITEM SEPARATOR
+            MENUITEM "&Point Load\tAlt+P",          IDM_POINT_LOAD
+            MENUITEM "&Linear Distributed Load\tAlt+L", 
+                                                    IDM_LINEAR_DISTRIBUTED_LOAD
+
+        END
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Beam with Loads",            IDM_VIEW_CONTINUOUS_BEAM
+        MENUITEM "&Shear Force",                IDM_VIEW_SHEAR_FORCE
+        MENUITEM "&Bending Moment",             IDM_VIEW_BENDING_MOMENT
+        MENUITEM "&Displacement",               IDM_VIEW_DISPLACEMENT
+        MENUITEM SEPARATOR
+        MENUITEM "&Numerical Values",           IDM_VIEW_NUMERICAL_VALUES
+        MENUITEM SEPARATOR
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR, CHECKED
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New View",                   ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About...",                   IDM_ABOUT
+    END
+END
+
+IDR_MAIN_FRAME ACCELERATORS 
+BEGIN
+    "X",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_HELP_INDEX,          VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "P",            ID_PRINT,               VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      IDM_DELETE,             VIRTKEY, NOINVERT
+    "X",            IDM_FIXED_SUPPORT,      VIRTKEY, ALT, NOINVERT
+    "N",            IDM_HINGED_SUPPORT,     VIRTKEY, ALT, NOINVERT
+    "L",            IDM_LINEAR_DISTRIBUTED_LOAD, VIRTKEY, ALT, NOINVERT
+    "P",            IDM_POINT_LOAD,         VIRTKEY, ALT, NOINVERT
+    "R",            IDM_ROLLER_SUPPORT,     VIRTKEY, ALT, NOINVERT
+END
+
+IDD_CREATE_BEAM DIALOGEX 12, 29, 152, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Beam..."
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Beam length:",IDC_STATIC,9,18,43,8
+    EDITTEXT        IDC_BEAM_LENGTH,57,16,64,12
+    PUSHBUTTON      "OK",IDOK,24,46,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,80,46,48,14,WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "[m]",IDC_STATIC,125,18,14,8
+END
+
+IDD_PROPERTIES DIALOGEX 12, 29, 190, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Properties"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Modulus of elasticity:",IDC_STATIC,9,11,70,8
+    EDITTEXT        IDC_MODULUS_OF_ELASTICITY,84,9,64,12
+    PUSHBUTTON      "OK",IDOK,44,66,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,96,66,48,14,WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "[N/mm²]",IDC_STATIC,153,11,32,8
+    LTEXT           "Moment of inertia:",IDC_STATIC,9,28,65,8
+    EDITTEXT        IDC_MOMENT_OF_INERTIA,83,26,64,12
+    LTEXT           "Axial area:",IDC_STATIC,10,44,65,8
+    EDITTEXT        IDC_AXIAL_AREA,83,43,64,12
+    LTEXT           "[cm^4]",IDC_STATIC,153,27,28,8
+    LTEXT           "[cm²]",IDC_STATIC,153,45,23,8
+END
+
+IDD_HINGED_SUPPORT DIALOGEX 12, 29, 163, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hinged Support"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Support position:",IDC_STATIC,12,18,56,8
+    EDITTEXT        IDC_POSITION,69,16,62,12
+    PUSHBUTTON      "OK",IDOK,28,53,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,84,53,48,14,WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "[m]",IDC_STATIC,135,18,12,8
+END
+
+IDD_FIXED_SUPPORT DIALOGEX 12, 29, 161, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Fixed Support"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Position:",IDC_STATIC,38,11,30,8
+    CONTROL         "left end",IDC_POSITION_LEFT, "Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,74,10,68,12
+    CONTROL         "right end",IDC_POSITION_RIGHT, "Button",
+                    BS_AUTORADIOBUTTON,74,26,68,12
+    PUSHBUTTON      "OK",IDOK,28,53,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,84,53,48,14,WS_GROUP | NOT WS_TABSTOP
+END
+
+IDD_POINT_LOAD DIALOGEX 18, 22, 153, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Point Load"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Load value:",IDC_STATIC,16,42,40,8
+    LTEXT           "Load position:",IDC_STATIC,16,16,46,8
+    EDITTEXT        IDC_POSITION,64,14,50,12
+    EDITTEXT        IDC_VALUE,64,40,50,12
+    PUSHBUTTON      "OK",IDOK,24,70,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,80,70,48,14,WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "[m]",IDC_STATIC,118,16,14,8
+    LTEXT           "[KN]",IDC_STATIC,118,42,16,8
+END
+
+IDD_LINEAR_DISTRIBUTED_LOAD DIALOGEX 12, 22, 156, 92
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Linear Distributed Load"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Load value:",IDC_STATIC,15,46,40,8
+    LTEXT           "Load length:",IDC_STATIC,15,28,40,8
+    LTEXT           "Load position:",IDC_STATIC,16,10,46,8
+    EDITTEXT        IDC_POSITION,65,8,46,12
+    EDITTEXT        IDC_LENGTH,65,26,46,12
+    EDITTEXT        IDC_VALUE,65,44,46,12
+    LTEXT           "[m]",IDC_STATIC,115,10,26,8
+    LTEXT           "[m]",IDC_STATIC,115,28,26,8
+    LTEXT           "[KN/m]",IDC_STATIC,116,46,24,8
+    PUSHBUTTON      "OK",IDOK,26,69,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,82,69,48,14,WS_GROUP | NOT WS_TABSTOP
+END
+
+IDD_ABOUT DIALOGEX 15, 29, 182, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Beamax"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "Beamax 2.4",IDC_STATIC,15,8,82,8
+    PUSHBUTTON      "OK",IDOK,124,59,50,14,NOT WS_TABSTOP
+END
+
+IDD_ROLLER_SUPPORT DIALOGEX 12, 29, 163, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Roller Support"
+FONT 8, "Tahoma", 0, 0, 0x1
+BEGIN
+    LTEXT           "Support position:",IDC_STATIC,12,18,56,8
+    EDITTEXT        IDC_POSITION,69,16,62,12
+    PUSHBUTTON      "OK",IDOK,28,53,48,14,WS_GROUP | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,84,53,48,14,WS_GROUP | NOT WS_TABSTOP
+    LTEXT           "[m]",IDC_STATIC,135,18,12,8
+END
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 181
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+STRINGTABLE 
+BEGIN
+    IDR_MAIN_FRAME          "Beamax"
+    IDR_DOCUMENT            "\nBEAM\nBeamax.System\nBeamax-Files (*.bcb)\n.bcb\nBeamax.System\nBeamax.System"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Beamax"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OPENFILE        "Open"
+    AFX_IDS_SAVEFILE        "Save As"
+    AFX_IDS_ALLFILTER       "All Files (*.*)"
+    AFX_IDS_UNTITLED        "Untitled"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_INVALID_FILENAME "Invalid filename."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Failed to save document."
+    AFX_IDP_ASK_TO_SAVE     "Save changes to the %1 document ""%2""?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Failed to create empty document."
+    AFX_IDP_FILE_TOO_LARGE  "The file is too large to open."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Failed to launch help."
+    AFX_IDP_INTERNAL_FAILURE "Internal application error."
+    AFX_IDP_COMMAND_FAILURE "Command failed."
+    AFX_IDP_FAILED_MEMORY_ALLOC "Insufficient memory to perform operation."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_GET_NOT_SUPPORTED "Unable to read write-only property."
+    AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
+    AFX_IDP_FAILED_DISK_FULL "Destination disk drive is full."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Unable to read from %1, it is opened by someone else."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Unable to write to %1, it is read-only or opened by someone else."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "An unexpected error occurred while reading %1."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "An unexpected error occurred while writing %1."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_PARSE_INT       "Please enter an integer."
+    AFX_IDP_PARSE_REAL      "Please enter a number."
+    AFX_IDP_PARSE_INT_RANGE "Please enter an integer between %1 and %2."
+    AFX_IDP_PARSE_REAL_RANGE "Please enter a number between %1 and %2."
+    AFX_IDP_PARSE_STRING_SIZE "Please enter no more than %1 characters."
+    AFX_IDP_PARSE_RADIO_BUTTON "Please select a button."
+    AFX_IDP_PARSE_BYTE      "Please enter an integer between 0 and 255."
+    AFX_IDP_PARSE_UINT      "Please enter a positive integer."
+END
+
+#endif    // English (U.S.) resources
+

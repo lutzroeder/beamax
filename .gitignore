@@ -1,0 +1,12 @@
+*.suo
+*.user
+*.sln.docstates
+*.sln.metaproj
+*.sln.metaproj.tmp
+.vs/
+.vscode/
+*.cache
+[Bb]in/
+[Oo]bj/
+Build/
+Source/x64
